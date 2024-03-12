@@ -1,98 +1,97 @@
 window.onload = () => {
-    let nameInput = document.getElementById('name');
-    nameInput.onkeydown = (event) => {
-        let number = parseInt(event.key);
-        if (!isNaN(number)) {
-            return false;
+    let nameInput = $('#name');
+    let usernameInput = $('#username');
+    let agreeCheckbox = $('#agreement');
+    let buttonSighUp = $('#sign-up');
+    let popup = $('#popup');
+    let emailInput = $('#email');
+    let repeatPasswordInput = $('#repeat-password');
+    let passwordInput = $('#password');
+    let inputNames = $('#input-name');
+    let passwordRegExp = new RegExp('^(?=.*\\d)(?=.*[!"#$%&\'()*+,-.\\/\\\\:;<=>?@^_`{|}~])(?=.*[A-Z]).{8,}$');
+
+    let client = {}
+
+    let clients = [];
+
+    buttonSighUp.click(function () {
+        let hasError = false;
+
+        $('.main-input').css('border-color', '#C6C6C4');
+        $('.error-message').hide();
+
+        if (!nameInput.val().match(/^[а-яА-Яa-zA-Z\s]+$/)) {
+            nameInput.css('border-color', 'red');
+            hasError = true;
+            nameInput.next().show();
         }
-    }
-    let usernameInput = document.getElementById('username');
-    usernameInput.onkeydown = (event) => {
-        if (event.key === '.' || event.key === ',') {
-            return false;
+
+        if (!usernameInput.val().match(/^[а-яА-яa-zA-z\d_-]+$/)) {
+            usernameInput.css('border-color', 'red');
+            hasError = true;
+            usernameInput.next().show();
         }
-    }
-    let agreeCheckbox = document.getElementById('agreement');
-    agreeCheckbox.onchange = (event) => {
-        console.log();
-        if (event.target.checked) {
-            console.log("Согласен");
-        } else {
-            console.log("Не согласен");
+
+        if (!emailInput.val().match(/^[а-яА-яa-zA-z\d._-]+@[a-z]+\.[a-z]{2,6}$/)) {
+            emailInput.css('border-color', 'red');
+            hasError = true;
+            emailInput.next().show();
         }
-    }
-    let buttonSighUp = document.getElementById('sign-up');
-    let popup = document.getElementById('popup');
-    let emailInput = document.getElementById('email');
-    let repeatPasswordInput = document.getElementById('repeat-password');
-    let passwordInput = document.getElementById('password');
-    let inputNames = document.getElementsByClassName('input-name');
-    buttonSighUp.onclick = (event) => {
-        event.preventDefault();
-        if (!!!nameInput.value) {
-            alert('Заполните поле ' + inputNames[0].innerText);
-        } else {
-            if (!!!usernameInput.value) {
-                alert('Заполните поле ' + inputNames[1].innerText);
-            } else {
-                if (!!!emailInput.value) {
-                    alert('Заполните поле ' + inputNames[2].innerText);
-                } else {
-                    if (!!!passwordInput.value) {
-                        alert('Заполните поле ' + inputNames[3].innerText);
-                    } else if (passwordInput.value.length < 8) {
-                        alert('Пароль должен содержать не менее 8 символов');
-                    } else {
-                        if (!!!repeatPasswordInput.value) {
-                            alert('Заполните поле ' + inputNames[4].innerText);
-                        } else {
-                            if (passwordInput.value !== repeatPasswordInput.value) {
-                                alert('Пароли должны совпадать');
-                            } else {
-                                if (!agreeCheckbox.checked) {
-                                    alert('Нужно дать согласие с условиями использования и политикой конфиденциальности');
-                                } else {
-                                    popup.style.display = 'flex';
-                                }
-                            }
-                        }
-                    }
-                }
+
+        if (!passwordInput.val().match(passwordRegExp)) {
+            passwordInput.css('border-color', 'red');
+            hasError = true;
+            passwordInput.next().show();
+        }
+
+        if (repeatPasswordInput.val() !== passwordInput.val()) {
+            repeatPasswordInput.css('border-color', 'red');
+            hasError = true;
+            repeatPasswordInput.next().show();
+        }
+
+        if (!agreeCheckbox.is(':checked')) {
+            hasError = true;
+            agreeCheckbox.next().show();
+        }
+
+        if (!hasError) {
+            client.name = nameInput.val();
+            client.username = usernameInput.val();
+            client.email = emailInput.val();
+            client.password = passwordInput.val();
+            console.log(client);
+            let clientsData = localStorage.getItem('clients');
+            if (clientsData) {
+                clients = JSON.parse(clientsData);
             }
+
+            clients.push(client);
+            localStorage.setItem('clients', JSON.stringify(clients));
+
+            console.log(localStorage.getItem('clients'));
+            popup.css('display', 'flex');
         }
-    }
-    let popupButton = document.getElementById('popup-btn');
-    let linkHasAccount = document.getElementsByClassName('has-account')[0];
+    });
+    let popupButton = $('#popup-btn');
+    let linkHasAccount = $('.has-account');
     function logInPage() {
-        popup.style.display = 'none';
-        let mainTitle = document.getElementById('main-title');
-        mainTitle.innerText = 'Log in to the system';
-        nameInput.parentElement.remove();
-        emailInput.parentElement.remove();
-        repeatPasswordInput.parentElement.remove();
-        agreeCheckbox.parentElement.remove();
-        buttonSighUp.innerText = 'Sign In';
-        linkHasAccount.remove();
+        popup.css('display', 'none');
+        let mainTitle = $('#main-title');
+        mainTitle.text('Log in to the system');
+        nameInput.parent().hide();
+        emailInput.parent().hide();
+        repeatPasswordInput.parent().hide();
+        agreeCheckbox.parent().hide();
+        buttonSighUp.text('Sign In');
+        linkHasAccount.hide();
         usernameInput.value = null;
         passwordInput.value = null;
-        buttonSighUp.onclick = (event) => {
-            event.preventDefault();
-            if (!!!usernameInput.value) {
-                alert('Заполните поле ' + inputNames[0].innerText);
-            } else {
-                if (!!!passwordInput.value) {
-                    alert('Заполните поле ' + inputNames[1].innerText);
-                } else {
-                    alert('Добро пожаловать, ' + usernameInput.value + '!');
-                }
-            }
-        }
     }
-    linkHasAccount.onclick = (event) => {
-        event.preventDefault();
+    linkHasAccount.click(function () {
         logInPage();
-    }
-    popupButton.onclick = () => {
+    });
+    popupButton.click(function () {
         logInPage();
-    }
+    });
 }

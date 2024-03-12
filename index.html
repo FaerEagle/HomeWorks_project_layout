@@ -28,29 +28,35 @@
                 <label>
                     <span class="input-name">Full Name</span>
                     <input type="text" class="main-input" id="name">
+                    <span class="error-message">Full Name может содержать только буквы и пробел</span>
                 </label>
                 <label>
                     <span class="input-name">Your username</span>
                     <input type="text" class="main-input" id="username">
+                    <span class="error-message">Your username может содержать только буквы, цифры, символ подчеркивания и тире</span>
                 </label>
                 <label>
                     <span class="input-name">E-mail</span>
                     <input type="text" class="main-input" id="email">
+                    <span class="error-message">Неверный формат E-mail</span>
                 </label>
                 <label>
                     <span class="input-name">Password</span>
                     <input type="password" class="main-input" id="password">
+                    <span class="error-message">Пароль должен содержать минимум 8 символов, а также минимум одну цифру, заглавную букву и спецсимвол</span>
                 </label>
                 <label>
                     <span class="input-name">Repeat Password</span>
                     <input type="password" class="main-input" id="repeat-password">
+                    <span class="error-message">Пароли должны совпадать</span>
                 </label>
-                <label>
+                <label class="checkbox-label">
                     <input type="checkbox" id="agreement">
+                    <span class="error-message">Необходимо принять условия соглашения</span>
                     <span class="checkbox-text">Agree to our Terms of Service and Privacy Statement</span>
                 </label>
                 <div class="main-actions">
-                    <button class="btn main-btn" id="sign-up">Sign Up</button>
+                    <button type="button" class="btn main-btn" id="sign-up">Sign Up</button>
                     <a href="#" class="has-account">Already have an account?</a>
                 </div>
             </form>
@@ -68,6 +74,8 @@
     </div>
 </div>
 
+
+<script src="scripts/jquery-3.7.1.min.js"></script>
 <script src="scripts/script.js"></script>
 </body>
 </html>

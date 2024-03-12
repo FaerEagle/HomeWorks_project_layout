@@ -11,6 +11,7 @@
 body {
     font-family: Nunito, sans-serif;
     background: linear-gradient(90deg, #FFFFFB 50%, #F8F8FA 50%);
+    padding-bottom: 50px;
 }
 
 .header {
@@ -52,7 +53,8 @@ body {
 }
 
 .main-form form label {
-    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .input-name {
@@ -69,6 +71,22 @@ body {
     border-bottom: 1px solid #C6C6C4;
     width: 452px;
     outline: none;
+}
+
+.error-message {
+    color: red;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    display: none;
+}
+
+.main-form form .checkbox-label {
+    padding-bottom: 30px;
+}
+
+.checkbox-label .error-message {
+    top: 30px;
 }
 
 .checkbox-text {
