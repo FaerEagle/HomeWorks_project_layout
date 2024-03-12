@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homeworks</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <a href="#">
+            <img src="images/logo.svg" alt="Logo">
+        </a>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        <div class="main-form">
+            <div class="main-title" id="main-title">
+                Get your free account
+            </div>
+            <div class="main-description">
+                Try homeWorks BUSINESS free for 15 days. Downgrade to Basic (Free Forever) anytime.
+            </div>
+            <form action="">
+                <label>
+                    <span class="input-name">Full Name</span>
+                    <input type="text" class="main-input" id="name">
+                </label>
+                <label>
+                    <span class="input-name">Your username</span>
+                    <input type="text" class="main-input" id="username">
+                </label>
+                <label>
+                    <span class="input-name">E-mail</span>
+                    <input type="text" class="main-input" id="email">
+                </label>
+                <label>
+                    <span class="input-name">Password</span>
+                    <input type="password" class="main-input" id="password">
+                </label>
+                <label>
+                    <span class="input-name">Repeat Password</span>
+                    <input type="password" class="main-input" id="repeat-password">
+                </label>
+                <label>
+                    <input type="checkbox" id="agreement">
+                    <span class="checkbox-text">Agree to our Terms of Service and Privacy Statement</span>
+                </label>
+                <div class="main-actions">
+                    <button class="btn main-btn" id="sign-up">Sign Up</button>
+                    <a href="#" class="has-account">Already have an account?</a>
+                </div>
+            </form>
+        </div>
+        <div class="main-image">
+            <img src="images/main.png" alt="Laptop with rocket">
+        </div>
+    </div>
+</main>
+
+<div class="popup-container" id="popup">
+    <div class="popup">
+        <div class="popup-text">На вашу почту выслана ссылка, перейдите по ней, чтобы завершить регистрацию</div>
+        <button class="btn popup-btn" id="popup-btn">ОК</button>
+    </div>
+</div>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>

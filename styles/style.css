@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url("../fonts/Nunitobold.woff");
+}
+
+body {
+    font-family: Nunito, sans-serif;
+    background: linear-gradient(90deg, #FFFFFB 50%, #F8F8FA 50%);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 27px 0 56px 0;
+}
+
+.main .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 56px 46px 0 63px;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 496px;
+}
+
+.main-title {
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.main-description {
+    font-size: 22px;
+    line-height: 27px;
+    color: #636363;
+    margin-bottom: 70px;
+}
+
+.main-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-form form label {
+    margin-bottom: 20px;
+}
+
+.input-name {
+    font-size: 16px;
+    color: #C6C6C4;
+}
+
+.main-input {
+    display: block;
+    font-family: Nunito, sans-serif;
+    font-size: 20px;
+    color: #323232;
+    border: none;
+    border-bottom: 1px solid #C6C6C4;
+    width: 452px;
+    outline: none;
+}
+
+.checkbox-text {
+    font-size: 16px;
+    color: #636363;
+    margin-left: 10px;
+}
+
+.main-actions {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn {
+    background-color: #DD3142;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: Nunito, sans-serif;
+    cursor: pointer;
+}
+
+.main-btn {
+    width: 210px;
+    height: 70px;
+    display: block;
+    margin: 20px 0 44px 0;
+}
+
+.has-account {
+    font-size: 16px;
+    color: #636363;
+    text-decoration: none;
+}
+
+.popup-container {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    position: fixed;
+    background-color: white;
+    padding: 50px;
+    text-align: center;
+    border-radius: 40px;
+}
+
+.popup-text {
+    font-size: 20px;
+    color: #323232;
+    margin-bottom: 30px;
+}
+
+.popup-btn {
+    width: 100px;
+    height: 50px;
+}
