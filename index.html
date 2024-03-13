@@ -28,26 +28,31 @@
                 <label>
                     <span class="input-name">Full Name</span>
                     <input type="text" class="main-input" id="name">
+                    <span class="error-message empty-input-error-message">Поле необходимо заполнить</span>
                     <span class="error-message">Full Name может содержать только буквы и пробел</span>
                 </label>
                 <label>
                     <span class="input-name">Your username</span>
                     <input type="text" class="main-input" id="username">
-                    <span class="error-message">Your username может содержать только буквы, цифры, символ подчеркивания и тире</span>
+                    <span class="error-message empty-input-error-message">Поле необходимо заполнить</span>
+                    <span class="error-message" id="username-error-message">Your username может содержать только буквы, цифры, символ подчеркивания и тире</span>
                 </label>
                 <label>
                     <span class="input-name">E-mail</span>
                     <input type="text" class="main-input" id="email">
+                    <span class="error-message empty-input-error-message">Поле необходимо заполнить</span>
                     <span class="error-message">Неверный формат E-mail</span>
                 </label>
                 <label>
                     <span class="input-name">Password</span>
                     <input type="password" class="main-input" id="password">
-                    <span class="error-message">Пароль должен содержать минимум 8 символов, а также минимум одну цифру, заглавную букву и спецсимвол</span>
+                    <span class="error-message empty-input-error-message">Поле необходимо заполнить</span>
+                    <span class="error-message" id="password-error-message">Пароль должен содержать минимум 8 символов, а также минимум одну цифру, заглавную букву и спецсимвол</span>
                 </label>
                 <label>
                     <span class="input-name">Repeat Password</span>
                     <input type="password" class="main-input" id="repeat-password">
+                    <span class="error-message empty-input-error-message">Поле необходимо заполнить</span>
                     <span class="error-message">Пароли должны совпадать</span>
                 </label>
                 <label class="checkbox-label">
